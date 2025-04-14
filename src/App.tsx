@@ -13,10 +13,11 @@ export const App = () => {
       </div>
       <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
         <p className='text-xl font-bold text-center'>未完了のTODO</p>
-        <ul className='flex items-center mx-2 gap-2'>
+        <ul className='flex-col items-center mx-2 gap-2'>
           {Incompletes.map(() => {
             return(
-              <li className='flex-grow'>TODOです
+              <li className='flex items-center gap-2'>
+              <p className="flex-grow">TODOです</p>
               <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
               <button className="bg-gray-200 hover:bg-gray-300">削除</button>
               </li>
@@ -27,12 +28,12 @@ export const App = () => {
       <div className='mx-2 rounded-md border-2 bg-teal-400 border-teal-400 py-2'>
         <p className='text-xl font-bold text-center'>完了のTODO</p>
         <ul className='flex items-center mx-2 gap-2'>
-          <li className='flex-grow'>TODOでした</li>
+          <li className='flex-grow'>TODOです</li>
           <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
           <button className="bg-gray-200 hover:bg-gray-300">戻す</button>
         </ul>
         <ul className='flex items-center mx-2 gap-2'>
-          <li className='flex-grow'>TODOでした</li>
+          <li className='flex-grow'>TODOです</li>
           <button className="bg-gray-200 hover:bg-gray-300">完了</button>
           <button className="bg-gray-200 hover:bg-gray-300">戻す</button>
         </ul>
