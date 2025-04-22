@@ -2,6 +2,8 @@ import { useState } from "react";
 import "tailwindcss";
 
 export const App = () => {
+const [ TodoText, setTodoText ] = useState("")
+
  const [ Incompletes, setIncompletes ] = useState([
   "TODOです1", 
   "TODOです2"
@@ -12,11 +14,18 @@ const [ Completes, setCompletes ] = useState([
   "TODOでした2"
 ]);
 
+const onChangeTodoText = (event) => setTodoText(event.target.value);
+
   return (
     <>
     <div className="flex flex-col gap-y-6">
       <div className='mx-2 bg-teal-400 p-2 rounded-md gap-2 flex'>
-        <input type="text" placeholder="TODOを入力" className="p-2 bg-white"/>
+        <input 
+        type="text" 
+        placeholder="TODOを入力" 
+        className="p-2 bg-white" 
+        value={TodoText}
+        onChange={onChangeTodoText}/>
         <button className="bg-gray-200 rounded-md px-4 py-2 hover:bg-gray-300">追加</button>
       </div>
       <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
