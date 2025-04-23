@@ -14,7 +14,7 @@ const [ Completes, setCompletes ] = useState([
   "TODOでした2"
 ]);
 
-const onChangeTodoText = (event) => setTodoText(event.target.value);
+const onChangeTodoText = (event: React.ChangeEvent<HTMLInputElement>) => setTodoText(event.target.value);
 
   return (
     <>
