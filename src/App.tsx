@@ -16,6 +16,8 @@ const [ Completes, setCompletes ] = useState([
 
 const onChangeTodoText = (event: React.ChangeEvent<HTMLInputElement>) => setTodoText(event.target.value);
 
+
+
   return (
     <>
     <div className="flex flex-col gap-y-6">
@@ -26,7 +28,8 @@ const onChangeTodoText = (event: React.ChangeEvent<HTMLInputElement>) => setTodo
         className="p-2 bg-white" 
         value={TodoText}
         onChange={onChangeTodoText}/>
-        <button className="bg-gray-200 rounded-md px-4 py-2 hover:bg-gray-300">追加</button>
+        <button onClick={handleAppTodo}
+        className="bg-gray-200 rounded-md px-4 py-2 hover:bg-gray-300">追加</button>
       </div>
       <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
         <p className='text-xl font-bold text-center'>未完了のTODO</p>
