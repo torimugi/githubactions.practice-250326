@@ -16,6 +16,13 @@ const [ Completes, setCompletes ] = useState([
 
 const onChangeTodoText = (event: React.ChangeEvent<HTMLInputElement>) => setTodoText(event.target.value);
 
+const handleAddTodo = () => {
+const newTodo = [...Incompletes, TodoText];
+setIncompletes(newTodo)
+};
+console.log(handleAddTodo);
+
+
 
 
   return (
@@ -28,7 +35,7 @@ const onChangeTodoText = (event: React.ChangeEvent<HTMLInputElement>) => setTodo
         className="p-2 bg-white" 
         value={TodoText}
         onChange={onChangeTodoText}/>
-        <button onClick={handleAppTodo}
+        <button onClick={handleAddTodo}
         className="bg-gray-200 rounded-md px-4 py-2 hover:bg-gray-300">追加</button>
       </div>
       <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
