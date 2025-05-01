@@ -17,12 +17,12 @@ const [ Completes, setCompletes ] = useState([
 const onChangeTodoText = (event: React.ChangeEvent<HTMLInputElement>) => setTodoText(event.target.value);
 
 const handleAddTodo = () => {
+if (TodoText === "") return;
 const newTodo = [...Incompletes, TodoText];
 setIncompletes(newTodo)
 setTodoText("")
-};
 console.log(handleAddTodo);
-
+}
 
 
 
