@@ -19,6 +19,7 @@ const onChangeTodoText = (event: React.ChangeEvent<HTMLInputElement>) => setTodo
 const handleAddTodo = () => {
 const newTodo = [...Incompletes, TodoText];
 setIncompletes(newTodo)
+setTodoText("")
 };
 console.log(handleAddTodo);
 
