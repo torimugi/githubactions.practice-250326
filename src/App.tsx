@@ -21,11 +21,12 @@ if (TodoText === "") return;
 const newTodo = [...Incompletes, TodoText];
 setIncompletes(newTodo)
 setTodoText("")
-console.log(handleAddTodo);
 }
 
 const handleDelete = (index: number) => {
-  alert(index);
+  const newTodo = [...Incompletes]
+  newTodo.splice(index, 1);
+  setIncompletes(newTodo);
 }
 
   return (
