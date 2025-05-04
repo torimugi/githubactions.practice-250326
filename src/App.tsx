@@ -20,13 +20,22 @@ const handleAddTodo = () => {
 if (TodoText === "") return;
 const newTodo = [...Incompletes, TodoText];
 setIncompletes(newTodo)
-setTodoText("")
+setTodoText("");
 }
 
 const handleDelete = (index: number) => {
   const newTodo = [...Incompletes]
   newTodo.splice(index, 1);
   setIncompletes(newTodo);
+}
+
+const hendleComplete = (index: number) => {
+  const newIncompleteTodos = [...Incompletes]
+  newIncompleteTodos.splice(index, 1);
+
+  const newHandleComplete = [...Completes, Incompletes[index]];
+  setIncompletes(newIncompleteTodos);
+  setCompletes(newHandleComplete);
 }
 
   return (
@@ -48,7 +57,7 @@ const handleDelete = (index: number) => {
           {Incompletes.map((todo , index) => (
               <li key={todo} className='flex items-center gap-2'>
               <p className="flex-grow">{todo}</p>
-              <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+              <button onClick={() => hendleComplete(index)}className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
               <button onClick={() => handleDelete(index)} 
               className="bg-gray-200 hover:bg-gray-300">削除</button>
               </li>
