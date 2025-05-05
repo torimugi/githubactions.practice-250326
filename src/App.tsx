@@ -24,9 +24,18 @@ setTodoText("")
 }
 
 const handleDelete = (index: number) => {
-  const newTodo = [...Incompletes]
+  const newTodo = [...Incompletes];
   newTodo.splice(index, 1);
   setIncompletes(newTodo);
+}
+
+const handleComplete = (index: number) => {
+const newIncompleteTodo = [...Incompletes];
+newIncompleteTodo.splice(index, 1);
+
+const newCompleteTodo = [...Completes, Incompletes[index]];
+setIncompletes(newIncompleteTodo);
+setCompletes(newCompleteTodo);
 }
 
   return (
@@ -48,7 +57,8 @@ const handleDelete = (index: number) => {
           {Incompletes.map((todo , index) => (
               <li key={todo} className='flex items-center gap-2'>
               <p className="flex-grow">{todo}</p>
-              <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+              <button onClick={() => handleComplete(index)}
+              className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
               <button onClick={() => handleDelete(index)} 
               className="bg-gray-200 hover:bg-gray-300">削除</button>
               </li>
