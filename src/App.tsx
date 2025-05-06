@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "tailwindcss";
+import { InputTodo } from "./components/input";
 
 export const App = () => {
 const [ TodoText, setTodoText ] = useState("")
@@ -41,7 +42,7 @@ setIncompletes(newIncompleteTodo);
 setCompletes(newCompleteTodo);
 };
 
-// タクスを戻す
+// タスクを戻す
 const handleRevert = (index: number) => {
 const newRevertComplete = [...Completes];
 newRevertComplete.splice(index, 1);
@@ -55,15 +56,13 @@ setIncompletes(newRevertInComplete);
     <>
     <div className="flex flex-col gap-y-6">
       <div className='mx-2 bg-teal-400 p-2 rounded-md gap-2 flex'>
-        <input 
-        type="text" 
-        placeholder="TODOを入力" 
-        className="p-2 bg-white" 
-        value={TodoText}
-        onChange={onChangeTodoText}/>
-        <button onClick={handleAddTodo}
-        className="bg-gray-200 rounded-md px-4 py-2 hover:bg-gray-300">追加</button>
-      </div>
+
+< InputTodo 
+TodoText={TodoText} 
+onChange={onChangeTodoText} 
+onClick={handleAddTodo}
+/>
+
       <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
         <p className='text-xl font-bold text-center'>未完了のTODO</p>
         <ul className='flex-col items-center mx-2 gap-2'>
@@ -90,6 +89,7 @@ setIncompletes(newRevertInComplete);
               </li>
           ))}
         </ul>
+      </div>
       </div>
     </div>
     </>
