@@ -1,10 +1,12 @@
 import React from "react";
 
-// Type props  {
-
+// type Props = {
+//   Incompletes: string;
+//   handleComplete: number;
+//   handleDelete: number;
 // }
 
-
+export const IncompleteTodo: React.FC<Props> = ({ Incompletes, handleComplete, handleDelete }) => {
 <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
 <p className='text-xl font-bold text-center'>未完了のTODO</p>
 <ul className='flex-col items-center mx-2 gap-2'>
@@ -19,3 +21,4 @@ import React from "react";
   ))}
 </ul>
 </div>
+}
