@@ -65,7 +65,7 @@ onClick={handleAddTodo}
 />
 
 <IncompleteTodo
-Incompletes={Incompletes}
+todos={Incompletes}
 handleComplete={handleComplete}
 handleDelete={handleDelete}
   />

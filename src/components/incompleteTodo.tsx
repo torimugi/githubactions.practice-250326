@@ -1,16 +1,17 @@
 import React from "react";
 
-// type Props = {
-//   Incompletes: string;
-//   handleComplete: number;
-//   handleDelete: number;
-// }
+type Props = {
+  todos: string[];
+  handleComplete:  (index: number) => void;
+  handleDelete:  (index: number) => void;
+}
 
-export const IncompleteTodo: React.FC<Props> = ({ Incompletes, handleComplete, handleDelete }) => {
+export const IncompleteTodo: React.FC<Props> = ({ todos, handleComplete, handleDelete }) => {
+  return(
 <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
 <p className='text-xl font-bold text-center'>未完了のTODO</p>
 <ul className='flex-col items-center mx-2 gap-2'>
-  {Incompletes.map((todo , index) => (
+  {todos.map((todo , index) => (
       <li key={todo} className='flex items-center gap-2'>
       <p className="flex-grow">{todo}</p>
       <button onClick={() => handleComplete(index)}
@@ -21,4 +22,5 @@ export const IncompleteTodo: React.FC<Props> = ({ Incompletes, handleComplete, h
   ))}
 </ul>
 </div>
+)
 }
