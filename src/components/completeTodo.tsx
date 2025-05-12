@@ -1,15 +1,16 @@
 import React from "react";
 
-type Props {
-
+type Props = {
+  todos: string[];
+  handleRevert: (index: number) => void;
 }
 
-export const IncompleteTodo: React.FC<Props> = ({ todos, handleRevert }) => {
+export const CompleteTodo: React.FC<Props> = ({ todos, handleRevert }) => {
     return(
         <div className='mx-2 rounded-md border-2 bg-teal-400 border-teal-400 py-2'>
         <p className='text-xl font-bold text-center'>完了のTODO</p>
         <ul className='flex-col items-center mx-2 gap-2'>
-          {Completes.map((todo, index) => (
+          {todos.map((todo, index) => (
               <li key={todo} className='flex items-center gap-2'>
               <p className="flex-grow">{todo}</p>
               <button onClick={() => handleRevert(index)} 

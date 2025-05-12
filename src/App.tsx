@@ -2,6 +2,7 @@ import { useState } from "react";
 import "tailwindcss";
 import { InputTodo } from "./components/input";
 import { IncompleteTodo } from "./components/incompleteTodo";
+import { CompleteTodo } from "./components/completeTodo";
 
 export const App = () => {
 const [ TodoText, setTodoText ] = useState("")
@@ -68,10 +69,12 @@ onClick={handleAddTodo}
 todos={Incompletes}
 handleComplete={handleComplete}
 handleDelete={handleDelete}
-  />
+/>
 
-
-      
+<CompleteTodo
+todos={Completes}
+handleRevert={handleRevert}
+/>
 
       </div>
     </div>
