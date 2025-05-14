@@ -56,8 +56,7 @@ setIncompletes(newRevertInComplete);
 
   return (
     <>
-    <div className="flex flex-col gap-y-6">
-      <div className='mx-2 bg-teal-400 p-2 rounded-md gap-2 flex flex-col'>
+      <div className='flex flex-col mx-2 bg-white-400 p-2 rounded-md gap-2'>
 
 < InputTodo 
 TodoText={TodoText} 
@@ -77,7 +76,6 @@ handleRevert={handleRevert}
 />
 
       </div>
-    </div>
     </>
   )
 }

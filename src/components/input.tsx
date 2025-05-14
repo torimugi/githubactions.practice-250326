@@ -8,11 +8,11 @@ type Props = {
 
 export const InputTodo: React.FC<Props> = ({ TodoText, onChange, onClick }) => {
   return (
-    <div>
+    <div className="flex rounded-md overflow-hidden bg-teal-400 p-2 w-full max-w-md">
       <input
         type="text"
         placeholder="TODOを入力"
-        className="p-2 bg-white"
+        className="flex-grow p-2 outline-none bg-white mr-2"
         value={TodoText}
         onChange={onChange}
       />
