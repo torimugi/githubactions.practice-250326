@@ -57,7 +57,7 @@ setIncompletes(newRevertInComplete);
   return (
     <>
     <div className="flex flex-col gap-y-6">
-      <div className='mx-2 bg-teal-400 p-2 rounded-md gap-2 flex'>
+      <div className='mx-2 bg-teal-400 p-2 rounded-md gap-2 flex flex-col'>
 
 < InputTodo 
 TodoText={TodoText} 
