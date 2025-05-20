@@ -7,9 +7,9 @@ type Props = {
 
 export const CompleteTodo: React.FC<Props> = ({ todos, handleRevert }) => {
     return(
-        <div className='mx-2 rounded-md border-2 bg-teal-400 border-teal-400 py-2'>
+        <div className='rounded-md border-2 bg-teal-400 border-teal-400 py-2'>
         <p className='text-xl font-bold text-center'>完了のTODO</p>
-        <ul className='flex-col items-center mx-2 gap-2'>
+        <ul className='flex-col items-center mx-2'>
           {todos.map((todo, index) => (
               <li key={todo} className='flex items-center gap-2'>
               <p className="flex-grow">{todo}</p>
