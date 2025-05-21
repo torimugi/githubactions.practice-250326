@@ -64,6 +64,10 @@ onChange={onChangeTodoText}
 onClick={handleAddTodo}
 />
 
+{Incompletes.length >= 5 && (
+<p className="text-red-600">TODOは5個まで</p>
+)}
+
 <IncompleteTodo
 todos={Incompletes}
 handleComplete={handleComplete}
