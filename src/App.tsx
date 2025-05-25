@@ -62,6 +62,7 @@ setIncompletes(newRevertInComplete);
 TodoText={TodoText} 
 onChange={onChangeTodoText} 
 onClick={handleAddTodo}
+disabled={Incompletes.length >= 5}
 />
 
 {Incompletes.length >= 5 && (

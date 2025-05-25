@@ -4,6 +4,7 @@ type Props = {
   TodoText: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void;
+  disabled: boolean
 };
 
 export const InputTodo: React.FC<Props> = ({ TodoText, onChange, onClick, disabled }) => {
