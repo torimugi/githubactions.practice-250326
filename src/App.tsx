@@ -54,18 +54,20 @@ setCompletes(newRevertComplete);
 setIncompletes(newRevertInComplete);
 };
 
+const InputTodoLimit = Incompletes.length >= 5
+
   return (
     <>
       <div className='flex flex-col mx-2 bg-white-400 p-2 rounded-md gap-2'>
 
-< InputTodo 
+<InputTodo 
 TodoText={TodoText} 
 onChange={onChangeTodoText} 
 onClick={handleAddTodo}
 disabled={Incompletes.length >= 5}
 />
 
-{Incompletes.length >= 5 && (
+{InputTodoLimit && (
 <p className="text-red-600">TODOは5個まで</p>
 )}
 
