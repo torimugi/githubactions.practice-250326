@@ -3,7 +3,7 @@ import "tailwindcss";
 
 export const App = () => {
  const [ Incompletes, setIncompletes ] = useState(["TODOです1", "TODOです2"]);
- const [ Completes, setCompletes ] = useState(["TODOでした1", "TODOでした2"]);
+ const [ Completes, setCompletes ] = useState(["todoでした1", "todoでした2"]);
   return (
     <>
     <div className="flex flex-col gap-y-6">
