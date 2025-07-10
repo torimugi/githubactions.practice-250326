@@ -12,7 +12,7 @@ export const App = () => {
     <div className="flex flex-col gap-y-6">
       <div className='mx-2 bg-teal-400 p-2 rounded-md gap-2 flex'>
         <input type="text" placeholder="TODOを入力" className="p-2 bg-white"/>
-        <button className="bg-gray-200 rounded-md px-4 py-2 hover:bg-gray-300">追加</button>
+        <button className="bg-Qgray-200 rounded-md px-4 py-2 bg-gray-200 hover:bg-gray-300">追加</button>
       </div>
       <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
         <p className='text-xl font-bold text-center'>未完了のTODO</p>
@@ -26,14 +26,13 @@ export const App = () => {
             ))}
         </ul>
       </div>
-      <div className='mx-2 rounded-md border-2 bg-teal-400 border-teal-400 py-2'>
+      <div className='mx-2 mx-2 bg-teal-400 rounded-md border-2 border-teal-400 py-2'>
         <p className='text-xl font-bold text-center'>完了のTODO</p>
-        <ul className='flex items-center mx-2 gap-2'>
-        {Completes.map((todo, index) => (
-        <li key={index} className='flex items-center gap-2'>
-              <p className="flex-grow">{todo}</p>
-              <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
-              <button className="bg-gray-200 hover:bg-gray-300">削除</button>
+        <ul className='flex-col items-center mx-2 gap-2'>
+          {Completes.map((todo, index) => (
+              <li key={index} className='flex items-center gap-2'>
+                <p className="flex-grow">{todo}</p>
+                <button className="bg-gray-200 my-2 hover:bg-gray-300">戻す</button>
               </li>
             ))}
         </ul>
