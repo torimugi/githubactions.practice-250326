@@ -13,7 +13,13 @@ export const App = () => {
   setIncompletes([...Incompletes, todoText]);
   setTodoText("");
  };
- 
+
+ const onClickTodoDelete = (index: number) => {
+const newTodos = [...Incompletes];
+newTodos.splice(index, 1);
+setIncompletes(newTodos);
+ };
+  
  return (
     <>
     <div className="flex flex-col gap-y-6">
@@ -28,7 +34,7 @@ export const App = () => {
               <li key={index} className='flex items-center gap-2'>
                 <p className="flex-grow">{todo}</p>
                 <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
-                <button className="bg-gray-200 hover:bg-gray-300">削除</button>
+                <button className="bg-gray-200 hover:bg-gray-300" onClick={() => onClickTodoDelete(index)}>削除</button>
               </li>
             ))}
         </ul>
