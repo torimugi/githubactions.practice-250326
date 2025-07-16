@@ -20,6 +20,12 @@ newTodos.splice(index, 1);
 setIncompletes(newTodos);
  };
   
+const onClickComplete = (index: number) => {
+const newCompletesTodos = [...Completes];
+newCompletesTodos.push(Incompletes[index]);
+setCompletes(newCompletesTodos);
+};
+
  return (
     <>
     <div className="flex flex-col gap-y-6">
@@ -33,7 +39,7 @@ setIncompletes(newTodos);
           {Incompletes.map((todo, index) => (
               <li key={index} className='flex items-center gap-2'>
                 <p className="flex-grow">{todo}</p>
-                <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+                <button className="bg-gray-200 my-2 hover:bg-gray-300" onClick={() => onClickComplete(index)}>完了</button>
                 <button className="bg-gray-200 hover:bg-gray-300" onClick={() => onClickTodoDelete(index)}>削除</button>
               </li>
             ))}
