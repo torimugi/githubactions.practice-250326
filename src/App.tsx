@@ -7,27 +7,40 @@ export const App = () => {
  const [ Incompletes, setIncompletes ] = useState(["TODOです1", "TODOです2"]);
  const [ Completes, setCompletes ] = useState(["TODOでした1", "TODOでした2"]);
   
+//  入力フォーム
  const onChangeTodo = (e: React.ChangeEvent<HTMLInputElement>) => setTodoText(e.target.value);
 
+//  追加
  const onClickAddTodo = () => {
   setIncompletes([...Incompletes, todoText]);
   setTodoText("");
  };
 
+//  削除
  const onClickTodoDelete = (index: number) => {
 const newTodos = [...Incompletes];
 newTodos.splice(index, 1);
 setIncompletes(newTodos);
  };
   
+//  完了
 const onClickComplete = (index: number) => {
 const newCompletesTodos = [...Completes];
 newCompletesTodos.push(Incompletes[index]);
-setCompletes(newCompletesTodos);
-
 const newInCompletesTodos = [...Incompletes];
 newInCompletesTodos.splice(index, 1);
+setCompletes(newCompletesTodos);
 setIncompletes(newInCompletesTodos);
+};
+
+// 戻す
+const onClickRevert = (index: number) => {
+  const newCompletesTodos = [...Completes];
+  newCompletesTodos.splice(index, 1);
+  
+  const newInCompletesTodos = [...Incompletes, Completes[index]];
+  setCompletes(newCompletesTodos);
+  setIncompletes(newInCompletesTodos);
 };
 
  return (
@@ -55,7 +68,7 @@ setIncompletes(newInCompletesTodos);
           {Completes.map((todo, index) => (
               <li key={index} className='flex items-center gap-2'>
                 <p className="flex-grow">{todo}</p>
-                <button className="bg-gray-200 my-2 hover:bg-gray-300">戻す</button>
+                <button className="bg-gray-200 my-2 hover:bg-gray-300" onClick={() => onClickRevert(index)}>戻す</button>
               </li>
             ))}
         </ul>
