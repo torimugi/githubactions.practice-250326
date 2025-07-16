@@ -24,6 +24,10 @@ const onClickComplete = (index: number) => {
 const newCompletesTodos = [...Completes];
 newCompletesTodos.push(Incompletes[index]);
 setCompletes(newCompletesTodos);
+
+const newInCompletesTodos = [...Incompletes];
+newInCompletesTodos.splice(index, 1);
+setIncompletes(newInCompletesTodos);
 };
 
  return (
