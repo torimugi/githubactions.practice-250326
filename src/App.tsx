@@ -5,9 +5,9 @@ import { Input } from "./components/Input";
 import { Complete } from "./components/Complete";
 
 export const App = () => {
- const [ todoText, setTodoText ] = useState("");
- const [ Incompletes, setIncompletes ] = useState(["TODOです1", "TODOです2"]);
- const [ Completes, setCompletes ] = useState(["TODOでした1", "TODOでした2"]);
+ const [ todoText, setTodoText ] = useState<string>("");
+ const [ Incompletes, setIncompletes ] = useState<string[]>([]);
+ const [ Completes, setCompletes ] = useState<string[]>([]);
   
 //  入力フォーム
  const onChangeTodo = (e: React.ChangeEvent<HTMLInputElement>) => setTodoText(e.target.value);

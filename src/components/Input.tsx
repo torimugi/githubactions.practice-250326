@@ -7,7 +7,7 @@ interface InputProps {
 export const Input: React.FC<InputProps> = ({ Incompletes, onClickComplete, onClickTodoDelete }) => {
 
     return (
-        <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
+        <div className='mx-2 rounded-md border-2 border-teal-400 py-2 min-h-[350px]'>
         <p className='text-xl font-bold text-center'>未完了のTODO</p>
         <ul className='flex-col items-center mx-2 gap-2'>
           {Incompletes.map((todo, index) => (
