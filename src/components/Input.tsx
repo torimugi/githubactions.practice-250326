@@ -6,7 +6,6 @@ interface InputProps {
 
 export const Input: React.FC<InputProps> = ({ Incompletes, onClickComplete, onClickTodoDelete }) => {
 
-
     return (
         <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
         <p className='text-xl font-bold text-center'>未完了のTODO</p>
