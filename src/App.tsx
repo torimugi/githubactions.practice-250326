@@ -14,6 +14,7 @@ export const App = () => {
 
 //  追加
 const onClickAddTodo = () => {
+  if(todoText.trim() === "") return;
   setIncompletes([...Incompletes, todoText]);
   setTodoText("");
  };
@@ -45,6 +46,9 @@ const onClickRevert = (index: number) => {
   setIncompletes(newInCompletesTodos);
 };
 
+//  5個以上は追加できない
+const disabled = Incompletes.length >= 5;
+
  return (
     <>
     <div className="flex flex-col gap-y-6">
@@ -53,7 +57,11 @@ const onClickRevert = (index: number) => {
   todoText={todoText} 
   onChange={onChangeTodo} 
   onClick={onClickAddTodo}
+  disabled={disabled}
   />
+{ disabled && (
+  <p className="text-center text-red-500 text-xl">TODOは５個までだよ～</p>
+)}
 
 <Input
 Incompletes={Incompletes}
