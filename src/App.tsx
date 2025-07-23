@@ -1,9 +1,7 @@
-import { useState } from "react";
 import "tailwindcss";
 
 export const App = () => {
- const [ Incompletes, setIncompletes ] = useState(["TODOです1", "TODOです2"]);
- const [ Completes, setCompletes ] = useState(["TODOでした1", "TODOでした2"]);
+ 
   return (
     <>
     <div className="flex flex-col gap-y-6">
@@ -11,28 +9,36 @@ export const App = () => {
         <input type="text" placeholder="TODOを入力" className="p-2 bg-white"/>
         <button className="bg-gray-200 rounded-md px-4 py-2 hover:bg-gray-300">追加</button>
       </div>
-      <div className='mx-2 rounded-md border-2 border-teal-400 py-2'>
-        <p className='text-xl font-bold text-center'>未完了のTODO</p>
+      
+      <div className='mx-2 rounded-md border-2 border-teal-400 py-2 min-h-100'>
+        <p className='text-xl font-bold text-center my-2'>未完了のTODO</p>
         <ul className='flex-col items-center mx-2 gap-2'>
-          {Incompletes.map((todo, index) => (
-              <li key={index} className='flex items-center gap-2'>
-              <p className="flex-grow">{todo}</p>
+              <li className='flex items-center gap-2'>
+              <p className="flex-grow">TODO1</p>
               <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
               <button className="bg-gray-200 hover:bg-gray-300">削除</button>
               </li>
-            ))}
+              <li className='flex items-center gap-2'>
+              <p className="flex-grow">TODO2</p>
+              <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+              <button className="bg-gray-200 hover:bg-gray-300">削除</button>
+              </li>
         </ul>
       </div>
-      <div className='mx-2 rounded-md border-2 bg-teal-400 border-teal-400 py-2'>
-        <p className='text-xl font-bold text-center'>完了のTODO</p>
-        <ul className='flex items-center mx-2 gap-2'>
-        {Completes.map((todo, index) => (
-        <li key={index} className='flex items-center gap-2'>
-              <p className="flex-grow">{todo}</p>
+      
+      <div className='mx-2 rounded-md border-2 bg-teal-400 border-teal-400 py-2 min-h-100'>
+        <p className='text-xl font-bold text-center my-2'>完了のTODO</p>
+        <ul className='flex-col items-center mx-2 gap-2'>
+        <li className='flex items-center gap-2'>
+              <p className="flex-grow">TODO1でした</p>
               <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
               <button className="bg-gray-200 hover:bg-gray-300">削除</button>
               </li>
-            ))}
+              <li className='flex items-center gap-2'>
+              <p className="flex-grow">TODO2でした</p>
+              <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+              <button className="bg-gray-200 hover:bg-gray-300">削除</button>
+              </li>
         </ul>
       </div>
     </div>
