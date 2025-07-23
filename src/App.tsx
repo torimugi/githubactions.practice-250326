@@ -1,79 +1,45 @@
-import { useState } from "react";
 import "tailwindcss";
-import { Todo } from "./components/Todo";
-import { Input } from "./components/Input";
-import { Complete } from "./components/Complete";
 
 export const App = () => {
- const [ todoText, setTodoText ] = useState<string>("");
- const [ Incompletes, setIncompletes ] = useState<string[]>([]);
- const [ Completes, setCompletes ] = useState<string[]>([]);
-  
-//  入力フォーム
- const onChangeTodo = (e: React.ChangeEvent<HTMLInputElement>) => setTodoText(e.target.value);
-
-//  追加
-const onClickAddTodo = () => {
-  if(todoText.trim() === "") return;
-  setIncompletes([...Incompletes, todoText]);
-  setTodoText("");
- };
-
-//  削除
- const onClickTodoDelete = (index: number) => {
-const newTodos = [...Incompletes];
-newTodos.splice(index, 1);
-setIncompletes(newTodos);
- };
-  
-//  完了
-const onClickComplete = (index: number) => {
-const newCompletesTodos = [...Completes];
-newCompletesTodos.push(Incompletes[index]);
-const newInCompletesTodos = [...Incompletes];
-newInCompletesTodos.splice(index, 1);
-setCompletes(newCompletesTodos);
-setIncompletes(newInCompletesTodos);
-};
-
-// 戻す
-const onClickRevert = (index: number) => {
-  const newCompletesTodos = [...Completes];
-  newCompletesTodos.splice(index, 1);
-  
-  const newInCompletesTodos = [...Incompletes, Completes[index]];
-  setCompletes(newCompletesTodos);
-  setIncompletes(newInCompletesTodos);
-};
-
-//  5個以上は追加できない
-const disabled = Incompletes.length >= 5;
-
- return (
+  return (
     <>
     <div className="flex flex-col gap-y-6">
-
-  <Todo 
-  todoText={todoText} 
-  onChange={onChangeTodo} 
-  onClick={onClickAddTodo}
-  disabled={disabled}
-  />
-{ disabled && (
-  <p className="text-center text-red-500 text-xl">TODOは５個までだよ～</p>
-)}
-
-<Input
-Incompletes={Incompletes}
-onClickTodoDelete={onClickTodoDelete}
-onClickComplete={onClickComplete}
-/>
-
-<Complete
-Completes={Completes}
-onClick={onClickRevert}
-/>
-
+      <div className='mx-2 bg-teal-400 p-2 rounded-md gap-2 flex'>
+        <input type="text" placeholder="TODOを入力" className="p-2 bg-white"/>
+        <button className="bg-gray-200 rounded-md px-4 py-2 hover:bg-gray-300">追加</button>
+      </div>
+      
+      <div className='mx-2 rounded-md border-2 border-teal-400 py-2 min-h-100'>
+        <p className='text-xl font-bold text-center my-2'>未完了のTODO</p>
+        <ul className='flex-col items-center mx-2 gap-2'>
+              <li className='flex items-center gap-2'>
+              <p className="flex-grow">TODO1</p>
+              <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+              <button className="bg-gray-200 hover:bg-gray-300">削除</button>
+              </li>
+              <li className='flex items-center gap-2'>
+              <p className="flex-grow">TODO2</p>
+              <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+              <button className="bg-gray-200 hover:bg-gray-300">削除</button>
+              </li>
+        </ul>
+      </div>
+      
+      <div className='mx-2 rounded-md border-2 bg-teal-400 border-teal-400 py-2 min-h-100'>
+        <p className='text-xl font-bold text-center my-2'>完了のTODO</p>
+        <ul className='flex-col items-center mx-2 gap-2'>
+        <li className='flex items-center gap-2'>
+              <p className="flex-grow">TODO1でした</p>
+              <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+              <button className="bg-gray-200 hover:bg-gray-300">削除</button>
+              </li>
+              <li className='flex items-center gap-2'>
+              <p className="flex-grow">TODO2でした</p>
+              <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+              <button className="bg-gray-200 hover:bg-gray-300">削除</button>
+              </li>
+        </ul>
+      </div>
     </div>
     </>
   )
