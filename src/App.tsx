@@ -17,6 +17,11 @@ setInputTodo(newTodo);
 setTodoText("");
 };
 
+const handleDeleteTodo = (index: number) => {
+  const newTodo = [...inputTodo];
+  newTodo.splice(index, 1);
+  setInputTodo(newTodo);
+};
   return (
     <>
       <div className="flex flex-col gap-y-6">
@@ -28,12 +33,12 @@ setTodoText("");
         <div className='mx-2 rounded-md border-2 border-teal-400 py-2 min-h-100'>
           <p className='text-xl font-bold text-center my-2'>未完了のTODO</p>
           <ul className='flex-col items-center mx-2 gap-2'>
-            {inputTodo.map((todo) => {
+            {inputTodo.map((todo, index) => {
               return (
                 <li key={todo} className='flex items-center gap-2'>
                   <p className="flex-grow">{todo}</p>
                   <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
-                  <button className="bg-gray-200 hover:bg-gray-300">削除</button>
+                  <button className="bg-gray-200 hover:bg-gray-300" onClick={() => {handleDeleteTodo(index)}}>削除</button>
                 </li>
               )
             })}
