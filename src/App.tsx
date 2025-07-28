@@ -4,34 +4,47 @@ import "tailwindcss";
 export const App = () => {
   const [todoText, setTodoText] = useState("");
   const [inputTodo, setInputTodo] = useState(["TODO1", "TODO2"]);
-  const [completTodo, setCompletTodo] = useState(["TODO1でした", "TODO2でした"]);
+  const [completeTodo, setCompleteTodo] = useState(["TODO1でした", "TODO2でした"]);
 
-
+// 入力
 const handleChangeNewTodo = (e: React.ChangeEvent<HTMLInputElement>) => {
 setTodoText(e.target.value);
 };
 
+// 追加
 const handleAddTodo = () => {
 const newTodo = [...inputTodo, todoText];
 setInputTodo(newTodo);
 setTodoText("");
 };
 
+// 削除
 const handleDeleteTodo = (index: number) => {
   const newTodo = [...inputTodo];
   newTodo.splice(index, 1);
   setInputTodo(newTodo);
 };
 
-
+// 完了
 const handleCompleteTodo = (index: number) => {
   const newIncompleteTodo = [...inputTodo];
   newIncompleteTodo.splice(index, 1);
   setInputTodo(newIncompleteTodo);
 
-  const newCompleteTodo = [...completTodo, inputTodo[index]];
-  setCompletTodo(newCompleteTodo);
+  const newCompleteTodo = [...completeTodo, inputTodo[index]];
+  setCompleteTodo(newCompleteTodo);
 };
+
+// 戻す
+const handleBackTodo = (index: number) => {
+  const newCompleteTodo = [...completeTodo];
+  newCompleteTodo.splice(index, 1);
+  setCompleteTodo(newCompleteTodo);
+
+  const newIncompleteTodo = [...inputTodo, completeTodo[index]];
+  setInputTodo(newIncompleteTodo);
+};
+
 
   return (
     <>
@@ -59,11 +72,11 @@ const handleCompleteTodo = (index: number) => {
         <div className='mx-2 rounded-md border-2 bg-teal-400 border-teal-400 py-2 min-h-100'>
           <p className='text-xl font-bold text-center my-2'>完了のTODO</p>
           <ul className='flex-col items-center mx-2 gap-2'>
-            {completTodo.map((todo) => {
+            {completeTodo.map((todo, index) => {
               return (
                 <li key={todo} className='flex items-center gap-2'>
                   <p className="flex-grow">{todo}</p>
-                  <button className="bg-gray-200 my-2 hover:bg-gray-300">戻す</button>
+                  <button className="bg-gray-200 my-2 hover:bg-gray-300" onClick={() => {handleBackTodo(index)}}>戻す</button>
                 </li>
               )
             })}
