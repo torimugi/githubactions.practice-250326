@@ -3,8 +3,8 @@ import "tailwindcss";
 
 export const App = () => {
   const [todoText, setTodoText] = useState("");
-  const [inputTodo, setInputTodo] = useState(["TODO1", "TODO2"]);
-  const [completeTodo, setCompleteTodo] = useState(["TODO1でした", "TODO2でした"]);
+  const [inputTodo, setInputTodo] = useState<string[]>([]);
+  const [completeTodo, setCompleteTodo] = useState<string[]>([]);
 
 // 入力
 const handleChangeNewTodo = (e: React.ChangeEvent<HTMLInputElement>) => {
