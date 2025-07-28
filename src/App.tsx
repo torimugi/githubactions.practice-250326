@@ -22,6 +22,17 @@ const handleDeleteTodo = (index: number) => {
   newTodo.splice(index, 1);
   setInputTodo(newTodo);
 };
+
+
+const handleCompleteTodo = (index: number) => {
+  const newIncompleteTodo = [...inputTodo];
+  newIncompleteTodo.splice(index, 1);
+  setInputTodo(newIncompleteTodo);
+
+  const newCompleteTodo = [...completTodo, inputTodo[index]];
+  setCompletTodo(newCompleteTodo);
+};
+
   return (
     <>
       <div className="flex flex-col gap-y-6">
@@ -37,7 +48,7 @@ const handleDeleteTodo = (index: number) => {
               return (
                 <li key={todo} className='flex items-center gap-2'>
                   <p className="flex-grow">{todo}</p>
-                  <button className="bg-gray-200 my-2 hover:bg-gray-300">完了</button>
+                  <button className="bg-gray-200 my-2 hover:bg-gray-300" onClick={() => {handleCompleteTodo(index)}}>完了</button>
                   <button className="bg-gray-200 hover:bg-gray-300" onClick={() => {handleDeleteTodo(index)}}>削除</button>
                 </li>
               )
